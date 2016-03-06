@@ -1,0 +1,75 @@
+body {
+	background-image: url(portal-background.png);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+img.karakterportree {
+	width: 250px;
+}
+
+#suurpealkiri {
+	font-family:calibri;
+	color:#5e6168;
+}
+
+h2.pealkirjad {
+	font-family:calibri;
+	color:#5e6168;
+}
+
+h3.alapealkiri {
+	font-family:calibri;
+	color:#5e6168;
+	font-weight: bold;
+	font-style: italic;
+}
+
+div {
+	font-family:calibri;
+	text-align: justify;
+}
+
+td.table-padding {
+	width: 5%; 
+}
+
+td.table-padding2 {
+	width: 60%; 
+}
+
+td.lai-veerg {
+	width: 35%;
+}
+
+td.pildiveerg {
+	width: 15%;
+}
+
+td.kirjeldus {
+	padding-left: 50px;
+	width: 20%; 
+	vertical-align: top;
+	border-left: 3px solid gray;
+}
+
+a {
+	color: #5e6168;
+}
+
+a:hover {
+	color: orange;
+	text-shadow: 1px 1px #ff0000;
+}
+
+ul {
+	list-style-type: disc;	
+}
+
+#html-validator {
+	text-align:center;
+}
+
+button:hover {
+	cursor: pointer;
+}

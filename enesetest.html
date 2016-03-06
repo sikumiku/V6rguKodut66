@@ -10,137 +10,139 @@ Aperture Science - Võrgurakendused II kodutöö
 </title>
 
 </head>
-<body style="background-image: url(portal-background.png); background-repeat: no-repeat;background-attachment: fixed;">
-<table>
-	<caption>&nbsp;</caption>
-  <tr>
-    <td style="width:5%"></td>
-	<td style="width:35%">
-		<p><img src ="tpNO0.png" alt="aperturescience"></p>
-		<h1 style="font-family:calibri; color:#5e6168;">Enesetest</h1>
-		<br/>
-	</td>
-	<td style="width:60%"></td>
-	
-  </tr>
-  <tr>
-	<td style="width:5%"></td>
-	<td style="width:35%">
-		<form action="enesetest.html" method="GET">
-			<table border="1">
-				<thead>
-					<tr>
-						<th>Küsimus</th>
-						<th>Vastus</th>
-					</tr>
-				</thead>
-				
-				<tr>
-					<td>Mis värvi on Chelli püksid?</td>
-					<td>
-						<label>
-							<input type="radio" name="pyksid" checked>Sinised</label>
-						<br>
-						<label>
-							<input type="radio" name="pyksid">Oranzid</label>
-						<br>
-						<label>
-							<input type="radio" name="pyksid">Hallid</label>
-						<br>
-						<label>
-							<input type="radio" name="pyksid">Valged</label>
-						<br>
-					</td>
-				</tr>
-				<tr>
-					<td>Mis on pahategelase nimi?</td>
-					<td>
-						<input type="text" name="nimi" maxlength="15" placeholder="Pahategelase nimi">
-					</td>
-				</tr>
-				<tr>
-					<td>Mitu mängu on Valve siiamaani Portal teemal välja lasknud?</td>
-					<td>
-						<input type="number" name="mitum2ngu" min="0" max="10" step="1" placeholder="Sisesta number 0-10">
-					</td>
-				</tr>
-				<tr>
-					<td>Mis on keskuse nimi, kus Portal toimub?</td>
-					<td>
-						<select name="keskusenimed">
-							<option>Aperture Science</option>
-							<option>Black Mesa</option>
-							<option>Portal Institute</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>Mis on Portal seadme värvid?</td>
-					<td>
-						<label>
-							<input type="checkbox" name="v2rvid">Punane</label>
-						<br>
-						<label>
-							<input type="checkbox" name="v2rvid">Sinine</label>
-						<br>
-						<label>
-							<input type="checkbox" name="v2rvid">Roheline</label>
-						<br>
-						<label>
-							<input type="checkbox" name="v2rvid">Oranz</label>
-						<br>
-					</td>
-				</tr>
-				<tr>
-					<td>Mida huvitavat sa õppisid Portalist?</td>
-					<td>
-						<textarea placeholder="Siia kirjuta tekst" name="missa6ppisid"></textarea>
-					</td>
-				</tr>
-			</table>
-			<br>
-			<button type="submit">Saada vastused</button>
-		</form>
-	</td>
-	<td style="width:60%"></td>
- </tr>
- 
-  <tr>
-	<td style="width:5%"></td>
-	<td colspan="2" style="width:35%">
-		<h2 style="font-family:calibri; color:#5e6168;">TABELI HARJUTUS</h2>
-	
-		<table border="1">
-			<caption>Test tabel</caption>
-			<tr>
-				<td colspan="3">&nbsp;</td>
-				<td rowspan="3">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-			</tr>
-			<tr>
-				<td rowspan="3">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-			</tr>
-			<tr>
-			<td colspan="3">&nbsp;</td>
-			</tr>
-				
-		</table>
-		<br/>
-	<h3 style="font-family:calibri; color:#5e6168;"><a href="http://enos.itcollege.ee/~saasma/Kodut661/homepage.html"></b>Tagasi kodulehele</b></a></h3>
+<body>
+<div>
+	<table>
+		<caption>&nbsp;</caption>
+	  <tr>
+		<td class="table-padding"></td>
+		<td class="lai-veerg">
+			<p><img src ="tpNO0.png" alt="aperturescience"></p>
+			<h1 style="font-family:calibri; color:#5e6168;">Enesetest</h1>
+			<br/>
+		</td>
+		<td class="table-padding2"></td>
 		
-	</td>
-	<td style="width:60%"></td> 
- </tr>
-</table>
-		<p style = "text-align:center">
-		 <a href="http://validator.w3.org/check?uri=referer" >
-		 <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88"/>
-		 </a>
-		 </p>
+	  </tr>
+	  <tr>
+		<td class="table-padding"></td>
+		<td class="lai-veerg">
+			<form action="enesetest.html" method="GET">
+				<table border="1">
+					<thead>
+						<tr>
+							<th>Küsimus</th>
+							<th>Vastus</th>
+						</tr>
+					</thead>
+					
+					<tr>
+						<td>Mis värvi on Chelli püksid?</td>
+						<td>
+							<label>
+								<input type="radio" name="pyksid" checked>Sinised</label>
+							<br>
+							<label>
+								<input type="radio" name="pyksid">Oranzid</label>
+							<br>
+							<label>
+								<input type="radio" name="pyksid">Hallid</label>
+							<br>
+							<label>
+								<input type="radio" name="pyksid">Valged</label>
+							<br>
+						</td>
+					</tr>
+					<tr>
+						<td>Mis on pahategelase nimi?</td>
+						<td>
+							<input type="text" name="nimi" maxlength="15" placeholder="Pahategelase nimi">
+						</td>
+					</tr>
+					<tr>
+						<td>Mitu mängu on Valve siiamaani Portal teemal välja lasknud?</td>
+						<td>
+							<input type="number" name="mitum2ngu" min="0" max="10" step="1" placeholder="Sisesta number 0-10">
+						</td>
+					</tr>
+					<tr>
+						<td>Mis on keskuse nimi, kus Portal toimub?</td>
+						<td>
+							<select name="keskusenimed">
+								<option>Aperture Science</option>
+								<option>Black Mesa</option>
+								<option>Portal Institute</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Mis on Portal seadme värvid?</td>
+						<td>
+							<label>
+								<input type="checkbox" name="v2rvid">Punane</label>
+							<br>
+							<label>
+								<input type="checkbox" name="v2rvid">Sinine</label>
+							<br>
+							<label>
+								<input type="checkbox" name="v2rvid">Roheline</label>
+							<br>
+							<label>
+								<input type="checkbox" name="v2rvid">Oranz</label>
+							<br>
+						</td>
+					</tr>
+					<tr>
+						<td>Mida huvitavat sa õppisid Portalist?</td>
+						<td>
+							<textarea placeholder="Siia kirjuta tekst" name="missa6ppisid"></textarea>
+						</td>
+					</tr>
+				</table>
+				<br>
+				<button type="submit">Saada vastused</button>
+			</form>
+		</td>
+		<td class="table-padding2"></td>
+	 </tr>
+	 
+	  <tr>
+		<td class="table-padding"></td>
+		<td colspan="2" class="lai-veerg">
+			<h2 class="pealkirjad">TABELI HARJUTUS</h2>
+		
+			<table border="1">
+				<caption>Test tabel</caption>
+				<tr>
+					<td colspan="3">&nbsp;</td>
+					<td rowspan="3">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				</tr>
+				<tr>
+					<td rowspan="3">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+				<td colspan="3">&nbsp;</td>
+				</tr>
+					
+			</table>
+			<br/>
+		<h3 class="alapealkiri"><a href="http://enos.itcollege.ee/~saasma/Kodut661/homepage.html"></b>Tagasi kodulehele</b></a></h3>
+			
+		</td>
+		<td class="table-padding2"></td> 
+	 </tr>
+	</table>
+			<p style = "text-align:center">
+			 <a href="http://validator.w3.org/check?uri=referer" >
+			 <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88"/>
+			 </a>
+			 </p>
+	</div>
 </body>
 </html>
