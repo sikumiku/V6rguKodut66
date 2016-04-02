@@ -11,36 +11,36 @@
 		$(document).ready(function(){
 			$("li").first().addClass("active");
 			
-				$("#next").click(function() {
-					$("li").each(function() {
-						if ($(this).hasClass("active")) {
-							$(this).removeClass("active");
-							$(this).next().addClass("active");
-							return false;
-						}
-						if ($("li").last().hasClass("active")) {
-							$("li").last().removeClass("active");
-							$("li").first().addClass("active");
-							return false;
-						}
-					});
+			$("#next").click(function() {
+				$("li").each(function() {
+					if ($(this).hasClass("active")) {
+						$(this).removeClass("active");
+						$(this).next().addClass("active");
+						return false;
+					}
+					if ($("li").last().hasClass("active")) {
+						$("li").last().removeClass("active");
+						$("li").first().addClass("active");
+						return false;
+					}
 				});
+			});
+			
+			$("#prev").click(function() {
+				$("li").each(function() {
+					if ($("li").first().hasClass("active")) {
+						$("li").first().removeClass("active");
+						$("li").last().addClass("active");
+						return false;
+					}
 				
-				$("#prev").click(function() {
-					$("li").each(function() {
-						if ($("li").first().hasClass("active")) {
-							$("li").first().removeClass("active");
-							$("li").last().addClass("active");
-							return false;
-						}
-					
-						if ($(this).hasClass("active")) {
-							$(this).removeClass("active");
-							$(this).prev().addClass("active");
-							return false;
-						}
-					});
+					if ($(this).hasClass("active")) {
+						$(this).removeClass("active");
+						$(this).prev().addClass("active");
+						return false;
+					}
 				});
+			});
 		});
 	</script>
 </head>

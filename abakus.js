@@ -13,5 +13,5 @@ window.onload = function() {
 
 	for (var i = 0; i < p2rlid.length; i++) {
 		p2rlid[i].onclick = liigutaP2rl;
-	}
+	}$(zz)
 }

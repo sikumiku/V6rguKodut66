@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+
+<title>
+Kõige edukamad videomängud
+</title>
+
+<style type="text/css">
+	body {
+		background-image: url(bioshock-background.jpg);
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	}
+	
+	div {
+		border: 3px outset black;
+		padding: 20px;
+		margin-left: 400px;
+		margin-top: 100px;
+		text-align: justify;
+		font-family:calibri;
+		background: rgba(255, 255, 255, 0.5);
+		width: 400px;
+	}
+</style>
+</head>
+<body>
+
+<div><?php echo $inner["nimi"];?> on tüübilt <?php echo $inner["tyyp"];?>, mis tuli välja aastal <?php echo $inner["aasta"];?> arendaja <?php echo $inner["arendaja"];?> poolt ja on publiku poolt hinnatud kümnepalliskaalas skooriga <?php echo $inner["reiting"];?>.</div>
+
+</body>
+</html>
