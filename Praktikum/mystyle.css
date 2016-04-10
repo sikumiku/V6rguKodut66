@@ -1,0 +1,43 @@
+body {
+    background-image: url(http://qlaconsulting.com/wp-content/uploads/2014/11/bigstock-Blue-sky-background-with-a-tin-56684774.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    color:white;
+    margin-left:20px;
+}
+p.normal{
+    color:black;
+    margin-left:0px;
+
+}
+p2{
+    color:black;
+    margin-left:0px;
+
+}
+
+img.karakterportree {
+	width: 250px;
+}
+
+
+h3.alapealkiri {
+	font-family:calibri;
+	color:#5e6168;
+	font-weight: bold;
+	font-style: italic;
+}
+
+td.kirjeldus {
+	padding-left: 50px;
+	width: 20%; 
+	vertical-align: top;
+	border-left: 3px solid gray;
+}

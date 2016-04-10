@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <title>tere maailm</title>
+    <script src="myscript.js"></script> <!-- laeb skripti sisse kuskilt-->
+    <script src="time.js"></script>
+</head>
+<body onload="startTime()">
+    <h1>Esimese praktikumi HTML</h1>
+    <p>disainitud tekst</p>
+    
+		<h2 class="pealkirjad"><b>Tere tulemast 1. praktikumi lehele</b></h2>
+			<h3 class="alapealkiri">Part</h3>
+			
+		</td>
+		<td class="table-padding2"></td>
+		
+	  </tr>
+	  <tr>
+		<td class="table-padding"></td>
+		<td class="pildiveerg">
+			
+			<img class="karakterportree" src = "https://media.cyberduck.io/img/cyberduck-icon-384.png" alt="nunnu part">
+			
+		</td>
+		<td class="kirjeldus">
+		
+			<b>Kummipart</b> on väga nunnu ja kollane ning kindlasti miski, mida võiks endale tulevikuks hankida. 
+			</div>
+		</td>
+		<td class="table-padding2"></td>
+	 </tr>    
+    
+    <br>
+
+    <p2>oled lehel viibinud:</p2>
+    <br>
+    <label id="minutes">00</label>:<label id="seconds">00</label>
+
+    <br>
+    <p.normal>sinu arvuti kell on:</p.normal><br>
+    <div id="txt"></div>
+
+    <script type="text/javascript"> //skript kohe htmli sees
+        var minutesLabel = document.getElementById("minutes");
+        var secondsLabel = document.getElementById("seconds");
+        var totalSeconds = 0;
+        setInterval(setTime, 1000);
+
+        function setTime()
+        {
+            ++totalSeconds;
+            secondsLabel.innerHTML = pad(totalSeconds%60);
+            minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+        }
+
+        function pad(val)
+        {
+            var valString = val + "";
+            if(valString.length < 2)
+            {
+                return "0" + valString;
+            }
+            else
+            {
+                return valString;
+            }
+        }
+    </script>
+</body>
+</html>
