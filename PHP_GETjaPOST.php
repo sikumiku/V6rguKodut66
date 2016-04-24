@@ -127,34 +127,34 @@
 
 	<form method="post">
 	
-	<textarea name="text" rows="5" cols="60" placeholder="Siia tuleb kirjutada."></textarea><br/>
+	<textarea name="text" rows="5" cols="60" placeholder="Siia tuleb kirjutada."><?php if(!empty($_POST["text"])) echo htmlspecialchars($_POST["text"]); ?></textarea><br/>
 	
-	<label><input type="color" name="bg_color" />Taustavärvus</label><br/>
-	<label><input type="color" name="text_color" />Tekstivärvus</label><br/>
+	<label><input type="color" name="bg_color" value='<?php if(!empty($_POST["bg_color"])) echo $_POST["bg_color"];?>'/>Taustavärvus</label><br/>
+	<label><input type="color" name="text_color" value='<?php if(!empty($_POST["text_color"])) echo $_POST["text_color"];?>' >Tekstivärvus</label><br/>
 
 	<div id="piirjoon">
 	
 		<p>Piirjoon</p>
 		
-		<label><input type="number" name="border_width" min="0" max="20" />Piirjoone laius (0-20px)</label><br/>
+		<label><input type="number" name="border_width" min="0" max="20" value='<?php if(!empty($_POST["border_width"])) echo $_POST["border_width"];?>'>Piirjoone laius (0-20px)</label><br/>
 		
 		<label><select name="border_style">
-			<option value="solid">solid</option>
-			<option value="dotted">dotted</option>
-			<option value="dashed">dashed</option>
-			<option value="double">double</option>
-			<option value="groove">groove</option>
-			<option value="ridge">ridge</option>
-			<option value="inset">inset</option>
-			<option value="outset">outset</option>
-			<option value="none">none</option>
+			<option value="solid" <?php if (!empty($_POST["border_style"]) && $_POST["border_style"] == 'solid' ) echo 'selected' ; ?>>solid</option>
+			<option value="dotted" <?php if (!empty($_POST["border_style"]) && $_POST["border_style"] == 'dotted' ) echo 'selected' ; ?>>dotted</option>
+			<option value="dashed" <?php if (!empty($_POST["border_style"]) && $_POST["border_style"] == 'dashed' ) echo 'selected' ; ?>>dashed</option>
+			<option value="double" <?php if (!empty($_POST["border_style"]) && $_POST["border_style"] == 'double' ) echo 'selected' ; ?>>double</option>
+			<option value="groove" <?php if (!empty($_POST["border_style"]) && $_POST["border_style"] == 'groove' ) echo 'selected' ; ?>>groove</option>
+			<option value="ridge" <?php if (!empty($_POST["border_style"]) && $_POST["border_style"] == 'ridge' ) echo 'selected' ; ?>>ridge</option>
+			<option value="inset" <?php if (!empty($_POST["border_style"]) && $_POST["border_style"] == 'inset' ) echo 'selected' ; ?>>inset</option>
+			<option value="outset" <?php if (!empty($_POST["border_style"]) && $_POST["border_style"] == 'outset' ) echo 'selected' ; ?>>outset</option>
+			<option value="none" <?php if (!empty($_POST["border_style"]) && $_POST["border_style"] == 'none' ) echo 'selected' ; ?>>none</option>
 		</select>
 		Piirjoone stiil
 		</label><br/>
 
-		<label><input type="color" name="border_color" />Piirjoone värvus</label><br/>
+		<label><input type="color" name="border_color" value='<?php if(!empty($_POST["border_color"])) echo $_POST["border_color"];?>' />Piirjoone värvus</label><br/>
 		
-		<label><input type="number" name="border_radius" min="0" max="100" />Piirjoone nurga raadius (0-100px)</label><br/>
+		<label><input type="number" name="border_radius" min="0" max="100" value='<?php if(!empty($_POST["border_radius"])) echo $_POST["border_radius"];?>' />Piirjoone nurga raadius (0-100px)</label><br/>
 	
 	</div>
 	

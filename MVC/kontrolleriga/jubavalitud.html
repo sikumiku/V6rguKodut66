@@ -1,0 +1,13 @@
+<?php if ($id || isset($_SESSION["pilt"])): ?>
+<?php if ($id == null) {
+	$id=$_SESSION["pilt"];
+	} else {
+		$_SESSION["pilt"]=$id;
+	}
+?>
+
+<p>Sa oled juba valinud.
+<p>Sinu valik:<br/>
+<p><img src="<?php echo $pildid[$id]["src"];?>" alt="väljavalitud pilt"/></p>
+<?php endif; ?>
+<br/><a href='?page=l6petasessioon'>Lõpeta sessioon!</a>
