@@ -1,0 +1,16 @@
+<?php if(!empty($puurid)):
+  foreach ($puurid as $id => $puur):
+  ?>
+
+  <div style="padding-left: 20px;">
+    <h2>Puuris number <?php echo $id; ?> on: </h2>
+	<div  style="padding-left: 20px;">
+      <?php foreach ($puur as $id => $loom): ?>
+	  <h3><?php echo $puur[$id]['nimi']; ?></h3></br>
+      <img src="<?php echo $puur[$id]['liik']?>" alt="<?php echo $puur[$id]['nimi']?>">
+      <?php endforeach; ?>
+  </div></div></br><hr></br>
+
+<?php endforeach;
+endif;
+?>
