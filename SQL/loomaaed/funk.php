@@ -14,6 +14,35 @@ function connect_db(){
 function logi(){
 	// siia on vaja funktsionaalsust (13. nädalal)
 
+	if (isset($_POST['user'])) {
+		include_once('views/puurid.html');
+	}
+
+	if (isset($_SERVER['REQUEST_METHOD'])) {
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$errorview = array();
+			if (empty($_POST['user'])) {
+				$errorview[] = "Palun sisesta kasutajanimi ka.";
+			}
+			if (empty($_POST['pass'])) {
+				$errorview[] = "Palun sisesta parool ka.";
+			}
+
+			if (empty($errorview)){
+				global $connection;
+				$user = mysqli_real_escape_string($connection, $_POST["user"]);
+				$pass = mysqli_real_escape_string($connection, $_POST["pass"]);
+				$sql = "SELECT username, passw FROM saasma_kylastajad WHERE username='$user' AND passw=SHA1('$pass')";
+				$result = mysqli_query($connection, $sql) or die ("Sellist kasutajat ei ole, sorri.");
+				$rida = mysqli_num_rows($result);
+				if ($rida > 0) {
+					$_SESSION['user'] = $user;
+					header("Location: ?page=loomad");
+				} 
+			}
+		}
+	}
+
 	include_once('views/login.html');
 }
 
@@ -24,6 +53,10 @@ function logout(){
 }
 
 function kuva_puurid(){
+	if (empty($_SESSION['user'])) {
+		header("Location: ?page=login");
+	}
+
 	global $connection;
 	$puurid = array();
 	$sql = "SELECT DISTINCT puur FROM saasma_loomaaed";
@@ -41,6 +74,40 @@ function kuva_puurid(){
 
 function lisa(){
 	// siia on vaja funktsionaalsust (13. nädalal)
+
+	if (empty($_SESSION['user'])) {
+		header("Location: ?page=login");
+	}
+
+	if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+		$errorview = array();
+		if (empty($_POST['nimi'])) {
+			$errorview[] = "Palun sisesta looma nimi ka.";
+		}
+		if (empty($_POST['puur'])) {
+			$errorview[] = "Vali puurinumber ka.";
+		}
+		$pilt = upload("liik");
+		if ($pilt == "") {
+			$errorview[] = "Palun vali pilt ka.";
+		} 
+
+		if (empty($errorview)) {
+			global $connection;
+			$user = mysqli_real_escape_string($connection, $_POST["user"]);
+			$pass = mysqli_real_escape_string($connection, $_POST["pass"]);
+			$sql = "INSERT INTO saasma_loomaaed (nimi, liik, puur) VALUES ('$nimi', '$liik', '$puur')";
+			$result = mysqli_query($connection, $sql) or die ("Proovi uuesti.");
+
+			if ($result) {
+				if (mysqli_insert_id($connection) > 0) {
+					header("Location: ?page=loomad");
+					exit(0);
+				}
+			}
+		}
+		else print_r($errorview);
+	}
 	
 	include_once('views/loomavorm.html');
 	
