@@ -32,10 +32,12 @@ function logi(){
 				global $connection;
 				$user = mysqli_real_escape_string($connection, $_POST["user"]);
 				$pass = mysqli_real_escape_string($connection, $_POST["pass"]);
-				$sql = "SELECT username, passw FROM saasma_kylastajad WHERE username='$user' AND passw=SHA1('$pass')";
+				$sql = "SELECT username, passw, roll FROM saasma_kylastajad WHERE username='$user' AND passw=SHA1('$pass')";
 				$result = mysqli_query($connection, $sql) or die ("Sellist kasutajat ei ole, sorri.");
 				$rida = mysqli_num_rows($result);
 				if ($rida > 0) {
+					$roll = $rida['roll'];
+					$_SESSION['roll'] = $roll;
 					$_SESSION['user'] = $user;
 					header("Location: ?page=loomad");
 				} 
@@ -75,7 +77,7 @@ function kuva_puurid(){
 function lisa(){
 	// siia on vaja funktsionaalsust (13. nädalal)
 
-	if (empty($_SESSION['user'])) {
+	if (empty($_SESSION['user']) || $_SESSION['roll'] != 'admin') {
 		header("Location: ?page=login");
 	}
 
@@ -113,6 +115,55 @@ function lisa(){
 	
 }
 
+function muuda(){
+
+global $connection;
+
+	if (empty($_SESSION['user'])) {
+		header("Location: ?page=login");
+	}
+	if (empty($_SESSION['admin'])) {
+		header("Location: ?page=loomad");
+	}
+
+	if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id']) && $_GET['id'] != "") {
+		$id=$_GET['id'];
+		$loom=hangi_loom(mysqli_real_escape_string($connection, $id));
+	} else {
+		header("Location: ?page=loomad");
+	}
+
+	if (isset($_POST['muuda']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+		$errorview = array();
+		if (empty($_POST['nimi'])) {
+			$errorview[] = "Palun sisesta looma nimi ka.";
+		}
+		if (empty($_POST['puur'])) {
+			$errorview[] = "Vali puurinumber ka.";
+		}
+		
+		if (empty($errorview)) {
+			$id = $_POST['muuda'];
+			$loom = hangi_loom(mysqli_real_escape_string($connection, $id));
+
+			$loom['nimi'] = mysqli_real_escape_string($connection, $_POST["nimi"]);
+			$loom['puur'] = mysqli_real_escape_string($connection, $_POST["puur"]);
+			$liik = upload("liik");
+			if ($liik != ""){
+				$loom['liik'] = $liik;
+			}
+
+			$sql= "UPDATE saasma_loomaaed SET nimi='".$loom['nimi']."', puur='".$loom['puur']."', liik='".$loom['liik']."' WHERE id=".$id;
+			$result = mysqli_query($connection, $sql) or die ("Loomaaia tabeli uuendamine ei toimunud.");
+
+			hearder("Location: ?page=loomad");
+		}
+	}
+	
+	include_once('views/editvorm.html');
+	
+}
+
 function upload($name){
 	$allowedExts = array("jpg", "jpeg", "gif", "png");
 	$allowedTypes = array("image/gif", "image/jpeg", "image/png","image/pjpeg");
@@ -139,6 +190,19 @@ function upload($name){
 		}
 	} else {
 		return "";
+	}
+}
+
+
+function hangi_loom($id) {
+	global $connection;
+	$sql = "SELECT * FROM saasma_loomaaed WHERE id=".$id;
+	$result = mysqli_query($connection, $sql) or die("Ei ole looma.");
+	if ($loominfo = mysqli_fetch_assoc($result)) {
+		return $loominfo;
+	}
+	else {
+		header("Location: ?page=loomad");
 	}
 }
 

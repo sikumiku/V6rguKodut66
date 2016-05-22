@@ -6,8 +6,15 @@
     <h2>Puuris number <?php echo $id; ?> on: </h2>
 	<div  style="padding-left: 20px;">
       <?php foreach ($puur as $id => $loom): ?>
+
 	  <h3><?php echo $puur[$id]['nimi']; ?></h3></br>
+      <?php if ($_SESSION['roll'] == 'admin') : ?>
+        <a href="<?php echo '?page=muuda&id='.$loom['id']; ?>" >
+      <?php endif; ?>
       <img src="<?php echo $puur[$id]['liik']?>" alt="<?php echo $puur[$id]['nimi']?>">
+      <?php if ($_SESSION['roll'] == 'admin') : ?>
+          </a>
+      <?php endif; ?>
       <?php endforeach; ?>
   </div></div></br><hr></br>
 
