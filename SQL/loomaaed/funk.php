@@ -20,7 +20,7 @@ function logi(){
 
 	if (isset($_SERVER['REQUEST_METHOD'])) {
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-			$errorview = array();
+			$errors = array();
 			if (empty($_POST['user'])) {
 				$errorview[] = "Palun sisesta kasutajanimi ka.";
 			}
@@ -36,7 +36,8 @@ function logi(){
 				$result = mysqli_query($connection, $sql) or die ("Sellist kasutajat ei ole, sorri.");
 				$rida = mysqli_num_rows($result);
 				if ($rida > 0) {
-					$roll = $rida['roll'];
+					$fields = mysqli_fetch_field($result);
+					$roll = $fields->roll;
 					$_SESSION['roll'] = $roll;
 					$_SESSION['user'] = $user;
 					header("Location: ?page=loomad");
